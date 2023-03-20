@@ -1,0 +1,3 @@
+specular of Y ;)
+
+ sgpt --no-animation -chat $(date '+%Y-%m-%d')-en "$1" > /dev/shm/aa.txt && echo -e "\x1b[40;40m $(</dev/shm/aa.txt) \x1b[m" | sed '/^\s*$/d' && gtts-cli -l en -f /dev/shm/a.txt | ffmpeg -i - -loglevel quiet -af "atempo=1.4,dialoguenhance,arnndn=m=sh.rnnn,volume=1.3" -ar 44100 -ac 2 -b:a 192k /dev/shm/xxx.mp3 && python -m aeneas.tools.execute_task /dev/shm/xxx.mp3 /dev/shm/aa.txt "task_language=eng|os_task_file_format=srt|is_text_type=plain" /dev/shm/sub.srt && PenguinSubtitlePlayer dev/shm/sub.srt & play -t mp3 /dev/shm/xxx.mp3 && kill 0 }
